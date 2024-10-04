@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Job Tracker",
+  "description": "Display all of your saved jobs",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "image/j_16.png",
+      "48": "image/j_48.png",
+      "128": "image/j_128.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://hk.jobsdb.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://hk.jobsdb.com/*"
+      ],
+      "js": [
+        "content/content.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "image/j_16.png",
+    "48": "image/j_48.png",
+    "128": "image/j_128.png"
+  }
+}
